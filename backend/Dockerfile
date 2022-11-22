@@ -1,3 +1,6 @@
+ARG VERSION
+ARG PORT
+
 FROM golang:1.16 AS build
 WORKDIR /go/src/github.com/org/repo
 COPY . .
@@ -5,8 +8,7 @@ COPY . .
 ENV CGO_ENABLED=0
 RUN go build -o server .
 
-ARG VERSION
-ARG PORT
+
 FROM build AS development
 RUN apt-get update \
     && apt-get install -y git
