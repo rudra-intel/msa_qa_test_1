@@ -5,6 +5,8 @@ COPY . .
 ENV CGO_ENABLED=0
 RUN go build -o server .
 
+ARG VERSION
+ARG PORT
 FROM build AS development
 RUN apt-get update \
     && apt-get install -y git
