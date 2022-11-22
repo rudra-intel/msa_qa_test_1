@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y git
 CMD ["go", "run", "main.go"]
 
-FROM alpine:3.12
+FROM alpine:${VERSION}
 EXPOSE ${PORT}
 COPY --from=build /go/src/github.com/org/repo/server /server
 CMD ["/server"]
