@@ -15,6 +15,6 @@ RUN apt-get update \
 CMD ["go", "run", "main.go"]
 
 FROM alpine:latest
-EXPOSE 80
+EXPOSE 8080
 COPY --from=build /go/src/github.com/org/repo/server /server
 CMD ["/server"]
